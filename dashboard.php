@@ -2,13 +2,13 @@
 session_start();
 include("connection.php");
 
-if (!isset($_SESSION['saler_id'])) {
+if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit();
 }
 
-$id    = $_SESSION['saler_id'];
-$name  = $_SESSION['saler_name'];
+$id    = $_SESSION['admin_id'];
+$name  = $_SESSION['admin_name'];
 
 // Fetch email + profile_pic
 $sql = "SELECT email, profile_pic FROM users WHERE id=?";
@@ -48,6 +48,8 @@ $total_discounts = 0;
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background: #f5f6fa;
+      height: 100vh;
+      overflow-x: hidden;
     }
     /* Navbar */
     .navbar {
@@ -134,12 +136,18 @@ $total_discounts = 0;
       margin-left: 0;
       padding: 20px;
       transition: margin-left 0.3s;
+      min-height: calc(100vh - 60px); /* full screen minus navbar */
+      display: flex;
+      flex-direction: column;
     }
     .sidebar.active ~ .main { margin-left: 250px; }
+
     .cards {
+      flex: 1;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
+      align-items: stretch;
     }
     .card {
       background: white;
@@ -156,7 +164,6 @@ $total_discounts = 0;
        color: inherit;
        display: block;
     }
-
     .card span {
       display: block;
       margin-top: 8px;
@@ -203,15 +210,16 @@ $total_discounts = 0;
   </div>
 
   <!-- Main Content -->
- <div class="cards">
-  <a href="products.php" class="card">Products <span><?php echo $total_products; ?></span></a>
-  <a href="sales.php" class="card">Sales <span><?php echo $total_sales; ?></span></a>
-  <a href="expenses.php" class="card">Expenses <span>$<?php echo number_format($total_expenses,2); ?></span></a>
-  <a href="profit.php" class="card">Profit <span>$<?php echo number_format($total_profit,2); ?></span></a>
-  <a href="discount.php" class="card">Discounts <span>$<?php echo number_format($total_discounts,2); ?></span></a>
-  <a href="loss.php" class="card">Loss <span>$<?php echo number_format($total_loss,2); ?></span></a>
-</div>
-
+  <div class="main" id="main">
+    <div class="cards">
+      <a href="products.php" class="card">Products <span><?php echo $total_products; ?></span></a>
+      <a href="sales.php" class="card">Sales <span><?php echo $total_sales; ?></span></a>
+      <a href="expenses.php" class="card">Expenses <span>$<?php echo number_format($total_expenses,2); ?></span></a>
+      <a href="profit.php" class="card">Profit <span>$<?php echo number_format($total_profit,2); ?></span></a>
+      <a href="discount.php" class="card">Discounts <span>$<?php echo number_format($total_discounts,2); ?></span></a>
+      <a href="loss.php" class="card">Loss <span>$<?php echo number_format($total_loss,2); ?></span></a>
+    </div>
+  </div>
 
   <script>
     function toggleSidebar() {
