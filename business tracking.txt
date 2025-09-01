@@ -1,0 +1,45 @@
+BUSINESS TRACKING SYSTEM
+1.information/requirement gathering
+    bei yakununua
+    usafiri
+    matumizi
+    faida
+    bei ya kuuza
+    discount
+    mauzo yake(sales)
+    
+functional requirement
+    authentication
+    **notification
+    **payment process
+    product management
+    reporting
+    order
+    searching and filtering
+    data management
+  
+
+Non functional requirement
+    speed
+    performance
+    security
+    time limit
+    usability
+    realibility 
+    constistence
+
+
+
+
+
+
+
+
+SYSTEM DESIGN
+adobe xd
+
+
+
+
+  
+    
