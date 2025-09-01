@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2025 at 08:20 AM
+-- Generation Time: Sep 01, 2025 at 07:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -78,8 +78,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `stock`, `product_image`) VALUES
-(1, 'Tomato', 20.00, 1, 'uploads/products/product_1756619312.jpg'),
-(2, 'Spinach', 1.00, 1, 'uploads/products/product_1756620765.png');
+(1, 'Tomato', 20.00, 1, 'uploads/products/product_1756743806.jpg'),
+(2, 'Spinach', 1.00, 1, 'uploads/products/product_1756743844.png'),
+(3, 'Iphone 16', 360.00, 1, 'uploads/products/product_1756744020.png');
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,8 @@ CREATE TABLE `sales` (
 
 INSERT INTO `sales` (`sales_id`, `product_id`, `id`, `quantity`, `sales_date`) VALUES
 (3, 1, 1, 10, '2025-08-31 05:56:50'),
-(4, 2, 1, 12, '2025-08-31 05:56:54');
+(4, 2, 1, 12, '2025-08-31 05:56:54'),
+(5, 3, 1, 1, '2025-09-01 15:28:40');
 
 -- --------------------------------------------------------
 
@@ -186,13 +188,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
